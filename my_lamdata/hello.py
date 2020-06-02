@@ -1,15 +1,29 @@
 from pandas import DataFrame
 
 from my_lamdata.my_mod import enlarge
+from my_lamdata.my_mod import train_val_test_split
+from my_lamdata.my_mod import contingency_tbl_chi_square
 
-print("HELLO")
+# print("HELLO")
 
-print(enlarge(8))
+# print(enlarge(8))
 
-df = DataFrame({"state": ["CT", "CO", "CA", "TX"]})
-print(df.head())
+# df = DataFrame({"state": ["CT", "CO", "CA", "TX"]})
+# print(df.head())
 
 # print("-----------------")
 # x = 5
 # print("NUMBER", x)
 # print("ENLARGED NUMBER", enlarge(x)) # invoking our function!!
+
+
+import seaborn as sns
+
+# iris = sns.load_dataset('iris')
+# train, val, test = train_val_test_split(iris, .2)
+# print(iris.shape)
+# print(train.shape,"\n",val.shape,"\n",test.shape)
+# print(val)
+
+titanic = sns.load_dataset('titanic')
+contingency_tbl_chi_square(titanic['class'],titanic['sex'])
