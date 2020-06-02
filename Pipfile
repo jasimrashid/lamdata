@@ -5,6 +5,7 @@ verify_ssl = true
 
 [dev-packages]
 twine = "*"
+autopep8 = "*"
 
 [packages]
 pandas = "*"
@@ -12,4 +13,4 @@ seaborn = "*"
 sklearn = "*"
 
 [requires]
-python_version = "3.8"
+python_version = "3.7.7"

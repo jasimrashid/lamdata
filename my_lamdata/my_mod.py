@@ -1,6 +1,6 @@
 # my_lambdata/my_mod.py
 
-# this code breaks our ability to import enlarge from other files, if left in the global scope:
+# Returns the product of the argument and 100
 def enlarge(n):
     """
     Param n is a number
