@@ -7,7 +7,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name="lamdata-jasim-rashid", # the name that you will install via pip
-    version="1.41",
+    version="1.42",
     author="Jasim Rashid",
     author_email="jasim.rashid@gmail.com",
     description="My first package installation",

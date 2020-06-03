@@ -24,7 +24,8 @@ def add_state_names_column(my_df):
 
 if __name__ =="__main__":
     df=pd.DataFrame({"abbrev":["CA","CO","CT","CT","DC","TX"]})
-    print(df.head())
+    # print(df.head())
 
+    processor = DataFrameProcessor(df=df)
     add_state_names_column(df)
     print(df.head())

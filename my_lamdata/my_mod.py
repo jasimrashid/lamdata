@@ -1,5 +1,4 @@
 # my_lambdata/my_mod.py
-
 # Returns the product of the argument and 100
 def enlarge(n):
     """
@@ -11,12 +10,10 @@ def enlarge(n):
 
 
 def train_val_test_split(df, size):
-
-
     """
-    Input: Pandas Dataframe object and size(ratio of train-test and train-val split)
+    Input: Pandas Dataframe and size(ratio of train-test and train-val split)
     
-    Function first splits dataframe into training and test sets. Then splits training set into training and validation sets.
+    Function first splits dataframe into training and test sets, and further splits the training set into training and validation sets.
 
     Output: Three dataframes, reprsenting training, validation & test sets
     """
@@ -27,22 +24,30 @@ def train_val_test_split(df, size):
 
 
 # Contingency table + Chi-squared report function: takes two categorical variables, outputs a contingency table and corresponding Chi-squared test
-def contingency_tbl_chi_square(feat1, feat2):
-    """
-    Input: Param feat1 & feat 2  are DataFrames containing string objects, i.e. are categorical variables
-    
-    Function creates a contingency table from feat1 and feat2, and performs a Chi-squared test using the contingency table as input
+class Categorical_feature_pair():
 
-    Output: Contingency table, chi-squared, p-value and degreees of freedom
-    """
+    def __init__(self, feat1, feat2):
+        self.feat1 = feat1
+        self.feat2 = feat2
 
-    import pandas as pd
-    contingency_table = pd.crosstab(feat1, feat2, margins = True)
-    print("Contingency Table: \n", contingency_table,"\n")
 
-    from scipy import stats
-    chi_squared, p_value, dof, expected = stats.chi2_contingency(contingency_table)
-    print("Chi-squared: ", chi_squared, "p-value: ", p_value, "DoF: ", dof)
+    @staticmethod
+    def contingency_tbl_chi_square(feat1, feat2):
+        """
+        Input: Param feat1 & feat 2  are DataFrames containing string objects, i.e. are categorical variables
+        
+        Function creates a contingency table from feat1 and feat2, and performs a Chi-squared test using the contingency table as input
+
+        Output: Contingency table, chi-squared, p-value and degreees of freedom
+        """
+
+        import pandas as pd
+        contingency_table = pd.crosstab(feat1, feat2, margins = True)
+        print("Contingency Table: \n", contingency_table,"\n")
+
+        from scipy import stats
+        chi_squared, p_value, dof, expected = stats.chi2_contingency(contingency_table)
+        print("Chi-squared: ", chi_squared, "p-value: ", p_value, "DoF: ", dof)
 
 
 
@@ -62,4 +67,11 @@ if __name__ == "__main__":
     # print(val)
 
     titanic = sns.load_dataset('titanic')
+
+    # Functionally
     contingency_tbl_chi_square(titanic['class'],titanic['sex'])
+
+    # With classes
+    feats = Categorical_feature_pair(titanic['class'],titanic['sex'])
+    feats.
+

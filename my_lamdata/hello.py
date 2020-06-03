@@ -27,3 +27,4 @@ import seaborn as sns
 
 titanic = sns.load_dataset('titanic')
 contingency_tbl_chi_square(titanic['class'],titanic['sex'])
+
